@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyansh WebCraft - Professional Web Solutions</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+<link rel="icon" type="image/png"  href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <title>Shreyansh WebCraft - Professional Web & App Solutions</title>
     <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -74,7 +78,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 60vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
@@ -264,6 +268,42 @@
             line-height: 1.8;
         }
 
+        /* Floating Call Icon */
+.floating-call {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+}
+
+.floating-call a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.floating-call a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+/* Subtle pulsing animation */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+}
+
         /* Benefits Section */
         .benefits {
             padding: 5rem 5%;
@@ -374,6 +414,9 @@
         .stat-label {
             font-size: 1.1rem;
             opacity: 0.9;
+        }
+        .stats p {
+            color: white;
         }
 
         /* Pricing Section */
@@ -699,7 +742,12 @@
     <!-- Navigation -->
   <nav id="navbar">
   <div class="nav-container">
-    <div class="logo">Shreyansh WebCraft</div>
+<div class="logo" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.5rem; display: flex; align-items: center; gap: 8px; color: #ffffff;">
+  <i class="fa-solid fa-code" style="color: #764ba2; font-size: 1.6rem;"></i>
+  <span style="color: #764ba2;">Shreyansh</span>
+  <span style="color: #667eea;">WebCraft</span>
+</div>
+
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -812,7 +860,7 @@
                         <h3>Portfolio Website</h3>
                         <p class="pricing-subtitle">Perfect for professionals</p>
                     </div>
-                    <div class="price">$499</div>
+                    <div class="price">₹14999</div>
                     <p class="price-period">One-time payment</p>
                     <ul class="pricing-features">
                         <li>5-7 page responsive website</li>
@@ -822,7 +870,11 @@
                         <li>Mobile responsive</li>
                         <li>1 month free support</li>
                     </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services.%20Could%20you%20please%20provide%20more%20information?%20Thank%20you!
+"
+class="float" target="_blank">
                     <button class="pricing-button">Get Started</button>
+                    </a>
                 </div>
 
                 <div class="pricing-card featured animate-on-scroll">
@@ -830,7 +882,7 @@
                         <h3>E-Commerce Platform</h3>
                         <p class="pricing-subtitle">Start selling online</p>
                     </div>
-                    <div class="price">$1,999</div>
+                    <div class="price">₹29999</div>
                     <p class="price-period">One-time payment</p>
                     <ul class="pricing-features">
                         <li>Full e-commerce functionality</li>
@@ -840,7 +892,11 @@
                         <li>Inventory management</li>
                         <li>3 months free support</li>
                     </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services.%20Could%20you%20please%20provide%20more%20information?%20Thank%20you!
+"
+class="float" target="_blank">
                     <button class="pricing-button">Get Started</button>
+                    </a>
                 </div>
 
                 <div class="pricing-card animate-on-scroll">
@@ -848,7 +904,7 @@
                         <h3>Mobile Application</h3>
                         <p class="pricing-subtitle">iOS & Android</p>
                     </div>
-                    <div class="price">$2,999</div>
+                    <div class="price">₹49999</div>
                     <p class="price-period">One-time payment</p>
                     <ul class="pricing-features">
                         <li>Cross-platform development</li>
@@ -858,7 +914,11 @@
                         <li>App store deployment</li>
                         <li>3 months free support</li>
                     </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services.%20Could%20you%20please%20provide%20more%20information?%20Thank%20you!
+"
+class="float" target="_blank">
                     <button class="pricing-button">Get Started</button>
+                    </a>
                 </div>
 
                 <div class="pricing-card animate-on-scroll">
@@ -876,7 +936,11 @@
                         <li>Cloud deployment</li>
                         <li>6 months free support</li>
                     </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20learning%20more%20about%20your%20custom%20services.%20Could%20you%20please%20provide%20more%20information?%20Thank%20you!
+"
+class="float" target="_blank">
                     <button class="pricing-button">Contact Us</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -930,13 +994,21 @@
             </div>
         </div>
     </section>
+<!-- Floating Call Icon -->
+<div class="floating-call">
+  <a href="tel:+918176989558" title="Call Shreyansh">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
 
     <!-- Support Section -->
     <section id="support" class="support">
         <div class="container">
             <h2>Ready to Start Your Project?</h2>
             <p>Let's discuss your ideas and create something amazing together</p>
-            <a href="mailto:shreyansh@webcraft.com" class="support-button">Contact Me Now</a>
+            <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services.%20Could%20you%20please%20provide%20more%20information?%20Thank%20you!
+"
+ target="_blank" class="support-button">Contact Me Now</a>
         </div>
     </section>
 
