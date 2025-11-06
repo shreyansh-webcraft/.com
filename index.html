@@ -181,24 +181,7 @@
             animation: fadeInUp 1s ease 0.4s backwards;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: #667eea;
-            font-size: 0.8rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
+     
 
         /* About Section */
         .about {
@@ -785,11 +768,29 @@
     <!-- Navigation -->
   <nav id="navbar">
   <div class="nav-container">
-<div class="logo" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.5rem; display: flex; align-items: center; gap: 8px; color: #ffffff;">
+<div class="logo" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; color: #ffffff;">
   <i class="fa-solid fa-code" style="color: #764ba2; font-size: 1.6rem;"></i>
   <span style="color: #764ba2;">Shreyansh</span>
-  <span style="color: #667eea;">WebCraft</span>
+  <span class="typing-effect" style="color: #667eea;"></span>
 </div>
+
+<script>
+  // Typing effect for "WebCraft"
+  const text = "WebCraft";
+  const typingSpan = document.querySelector(".typing-effect");
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      typingSpan.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 150); // typing speed in ms
+    }
+  }
+
+  type();
+</script>
+
 
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
@@ -808,9 +809,177 @@
         <div class="hero-content">
             <h1>Crafting Websites and Apps That Power Your Business</h1>
             <p>Professional websites, e-commerce platforms, mobile apps, and custom software solutions tailored for your business success</p>
-           <a href="#pricing" class="cta-button">
-  Build Your Website Today for <span style="font-size: 1.4rem; font-weight: 800;">₹1</span> – Pay Later!
+<!-- Main CTA Button -->
+<a href="#pricing" class="cta-button">
+  Build Your Website Today for <span class="highlight">₹1</span> – Pay Later!
 </a>
+
+<!-- Tags / Badges below the button -->
+<div class="cta-tags">
+  <span class="cta-tag"><i class="fas fa-gift"></i> Free Demo</span>
+  <span class="cta-tag"><i class="fas fa-tag"></i> Best Price</span>
+  <span class="cta-tag"><i class="fas fa-bolt"></i> Instant Setup</span>
+</div>
+
+<style>
+/* Main CTA button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: white;
+    color: #667eea;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 2px solid #667eea;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.cta-button .highlight {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #667eea;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.15);
+    transform: skewX(-25deg);
+    transition: all 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 125%;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Tags container */
+.cta-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Individual tags */
+.cta-tag {
+   
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem; /* space between icon and text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on tags */
+.cta-tag:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Optional: make icons a little bigger */
+.cta-tag i {
+    font-size: 0.9rem;
+}
+/* Main CTA button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: white;
+    color: #667eea;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 2px solid #667eea;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.cta-button .highlight {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #667eea;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.15);
+    transform: skewX(-25deg);
+    transition: all 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 125%;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Tags container */
+.cta-tags {
+    display: flex;
+    gap: 0.5rem; /* space between tags */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Individual tags */
+.cta-tag {
+   
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.45rem;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.15rem; /* small gap between icon and text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on tags */
+.cta-tag:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+</style>
+
+
 
 
 
@@ -912,7 +1081,7 @@
                 </div>
                 <div class="about-content animate-on-scroll">
                     <!-- <h3>We grow your business with full potential through innovation</h3> -->
-                    <p>Hi, I'm Shreyansh, a Software Engineer at Maersk and passionate freelancer. With expertise in modern web technologies and a deep understanding of business needs, I create digital solutions that drive real results.</p>
+                    <p>Hi, I'm Shreyansh, a <b>Software Engineer</b> at Maersk and passionate freelancer. With expertise in modern web technologies and a deep understanding of business needs, I create digital solutions that drive real results.</p>
                     <p>From stunning portfolio websites to robust e-commerce platforms, mobile applications, and custom software - I bring your vision to life with clean code, beautiful design, and exceptional user experience.</p>
                 </div>
             </div>
@@ -1396,7 +1565,6 @@ menuToggle.addEventListener('click', () => {
     </script>
 </body>
 </html>
-
 
 
 
