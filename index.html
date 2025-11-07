@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+           <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
 <link rel="icon" type="image/png"  href="/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <title>Shreyansh WebCraft - Professional Website & App Solutions</title>
-    <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
-<meta name="description" content="Shreyansh Rauniyar at Shreyansh WebCraft provides professional web and app development solutions. Hire the best developer in Uttar Pradesh and other state of India for websites, e-commerce platforms, and mobile apps.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Shreyansh Rauniyar at Shreyansh WebCraft provides professional web and app development solutions. Hire the best developer in Uttar Pradesh and other state of India for websites, e-commerce platforms, and mobile apps.">
     <meta name="keywords" content="Shreyansh Rauniyar, Shreyansh WebCraft, Best developer in Kushinagar, Best developer in Gorakhpur, Best developer in Lucknow, Web development, App development, Freelance developer">
     <meta name="author" content="Shreyansh Rauniyar - Shreyansh WebCraft">
     <meta name="robots" content="index, follow">
@@ -62,33 +62,47 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
         }
 
-        /* Navigation */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Premium Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 5%;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
         }
 
         nav.scrolled {
-            padding: 0.5rem 5%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 0.8rem 5%;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -96,36 +110,78 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #3b82f6;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--dark);
             font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
             transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
-            color: #3b82f6;
+            color: var(--primary);
         }
 
-        /* Hero Section */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section - Premium */
         .hero {
-            min-height: 60vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6rem 5% 4rem;
+            padding: 8rem 5% 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -137,25 +193,77 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            animation: wave 15s linear infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
         }
 
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
         }
 
         .hero-content {
             max-width: 1200px;
             text-align: center;
-            color: rgb(255, 255, 255);
+            color: white;
             z-index: 1;
-            animation: fadeInUp 1s ease;
         }
-        .hero-content { color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+            letter-spacing: -2px;
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(90deg, #ffffff 0%, #f0f9ff 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s backwards;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.8;
+        }
 
         @keyframes fadeInUp {
             from {
@@ -168,302 +276,394 @@
             }
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
+        /* Premium CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 0.5rem 3.5rem;
+            background: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.6s backwards;
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family:'Times New Roman', Times, serif
+        }
+
+        .cta-tags {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .cta-tag {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .cta-tag:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 3rem 5%;
+            background: var(--dark);
+            overflow: hidden;
+        }
+
+        .tech-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.4s backwards;
+            border-radius: 15px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
         }
 
-     
+        .tech-subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-        /* About Section */
+        .tech-scroll {
+            display: flex;
+            gap: 3rem;
+            animation: scroll-left 25s linear infinite;
+            white-space: nowrap;
+            margin-bottom: 2rem;
+        }
+
+        .tech-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .tech-item {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            min-width: 100px;
+            transition: transform 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.1);
+        }
+
+        .tech-item i {
+            font-size: 3rem;
+            filter: drop-shadow(0 5px 15px rgba(99, 102, 241, 0.3));
+        }
+
+        .tech-item span {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* About Section - Premium */
         .about {
-            padding: 5rem 5%;
-            background: #f8fafc;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 8rem 5%;
+            background: var(--light);
         }
 
         .section-title {
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: #1e293b;
+            color: var(--dark);
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #64748b;
-            margin-bottom: 3rem;
+            color: var(--gray);
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            animation: slideIn 1s ease;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
-        }
-       
-        .about-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.about-image {
-  flex: 0 0 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-image img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%; /* makes it circular */
-  border: 4px solid #6366f1; /* optional accent border */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.about-image img:hover {
-  transform: scale(1.05);
-}
-
-.about-content {
-  max-width: 600px;
-  text-align: left;
-}
-
-@media (max-width: 768px) {
-  .about-grid {
-    flex-direction: column;
-  }
-
-  .about-content {
-    text-align: center;
-  }
-}
-
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            flex: 0 0 280px;
+            position: relative;
         }
 
-        .about-content h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .about-image img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .about-content {
+            max-width: 600px;
         }
 
         .about-content p {
-            color: #64748b;
+            color: var(--gray);
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-size: 1.05rem;
         }
 
-        /* Floating Call Icon */
-.floating-call {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 1000;
-}
-
-.floating-call a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 50%;
-  font-size: 1.6rem;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  animation: pulse 2s infinite;
-}
-
-.floating-call a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
-}
-
-/* Subtle pulsing animation */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.6); }
-  70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
-}
-
-        /* Benefits Section */
+        /* Benefits Section - Premium */
         .benefits {
-            padding: 5rem 5%;
+            padding: 8rem 5%;
             background: white;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .benefit-card {
-            padding: 2rem;
-            background: #f8fafc;
-            border-radius: 15px;
-            transition: all 0.3s;
+            padding: 3rem 2rem;
+            background: var(--light);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 0.05;
         }
 
         .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        /* .benefit-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        } */
-
-        .benefit-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #1e293b;
-        }
-
-        .benefit-card p {
-            color: #64748b;
-            line-height: 1.6;
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
         }
 
         .benefit-icon {
-  font-size: 2.2rem;
-  color: #6366f1; /* your brand accent */
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem auto;
-  transition: all 0.3s ease;
-}
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
+        }
 
-.benefit-card:hover .benefit-icon {
-  background: #6366f1;
-  color: white;
-  transform: scale(1.1);
-}
-
-        /* Stats Section */
-        .stats {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .benefit-card:hover .benefit-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .benefit-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section - Premium */
+        .stats {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .stat-item {
             text-align: center;
-            animation: countUp 2s ease;
-        }
-
-        @keyframes countUp {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            position: relative;
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #ffffff 0%, #f0f9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .stat-label {
             font-size: 1.1rem;
             opacity: 0.9;
-        }
-        .stats p {
-            color: white;
+            font-weight: 500;
         }
 
-        /* Pricing Section */
+        /* Pricing Section - Premium */
         .pricing {
-            padding: 5rem 5%;
-            background: #f8fafc;
+            padding: 8rem 5%;
+            background: var(--light);
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .pricing-card {
             background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
@@ -475,69 +675,64 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.25);
+            border-color: var(--primary);
         }
 
         .pricing-card.featured {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
-        .pricing-card.featured .price,
-        .pricing-card.featured .pricing-features li {
-            color: white;
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-15px);
         }
 
         .pricing-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .pricing-subtitle {
             opacity: 0.7;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-period {
+            margin-bottom: 2rem;
             font-size: 1rem;
-            opacity: 0.7;
         }
 
         .pricing-features {
             list-style: none;
-            margin: 1.2rem 0;
+            margin: 2rem 0;
         }
 
         .pricing-features li {
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            color: #64748b;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .pricing-card.featured .pricing-features li {
-            border-bottom-color: rgba(255,255,255,0.2);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .pricing-features li:before {
             content: '✓';
-            margin-right: 0.5rem;
-            color: #667eea;
+            color: var(--primary);
             font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .pricing-card.featured .pricing-features li:before {
@@ -546,589 +741,428 @@
 
         .pricing-button {
             width: 100%;
-            padding: 1rem;
-            background: #667eea;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
         }
 
         .pricing-button:hover {
-            background: #764ba2;
             transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
         }
 
         .pricing-card.featured .pricing-button {
             background: white;
-            color: #667eea;
+            color: var(--primary);
         }
 
-        /* FAQ Section */
+        /* FAQ Section - Premium */
         .faq {
-            padding: 5rem 5%;
+            padding: 8rem 5%;
             background: white;
         }
 
         .faq-container {
-            max-width: 800px;
-            margin: 3rem auto 0;
+            max-width: 900px;
+            margin: 4rem auto 0;
         }
 
         .faq-item {
-            background: #f8fafc;
-            margin-bottom: 1rem;
-            border-radius: 10px;
+            background: var(--light);
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
         }
 
         .faq-question {
             width: 100%;
-            padding: 1.5rem;
+            padding: 2rem;
             background: none;
             border: none;
             text-align: left;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #1e293b;
-        }
-
-        .faq-question:hover {
-            background: rgba(102, 126, 234, 0.05);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-            color: #64748b;
-            line-height: 1.8;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0 1.5rem 1.5rem;
+            color: var(--dark);
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .faq-icon {
             transition: transform 0.3s;
+            font-size: 1.2rem;
+            color: var(--primary);
         }
 
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
         }
 
-        /* Support Section */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 2rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 2rem 2rem;
+        }
+
+        /* Support Section - Premium */
         .support {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             text-align: center;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
         }
 
         .support h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .support p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
         .support-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.3rem 3.5rem;
             background: white;
-            color: #667eea;
+            color: var(--primary);
             text-decoration: none;
             border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
         }
 
         .support-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         }
 
-        /* Footer */
-        footer {
-            background: #1e293b;
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .floating-call a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 2rem 5%;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 10px 35px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-call a:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 15px 45px rgba(99, 102, 241, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(99, 102, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        }
+
+        /* Footer - Premium */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5%;
             text-align: center;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
         }
 
-        /* Scroll animations */
+        /* Animations */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .animate-on-scroll.animated {
             opacity: 1;
             transform: translateY(0);
         }
-/* Hamburger button */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #1e293b;
-  transition: transform 0.3s;
-}
 
-.menu-toggle:hover {
-  transform: scale(1.1);
-}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
 
-/* Mobile view */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  nav.scrolled {
-            padding: 0.5rem 1%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 5%;
+                background: white;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .cta-button {
+                padding: 0.5rem 2.5rem;
+                font-size: 1rem;
+            }
+
+            .about-grid {
+                gap: 2rem;
+            }
         }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 5%;
-    background: white;
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 200px;
-    animation: slideDown 0.3s ease;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-
     </style>
 </head>
 <body>
     <!-- Navigation -->
-  <nav id="navbar">
-  <div class="nav-container">
-<div class="logo" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; color: #ffffff;">
-  <i class="fa-solid fa-code" style="color: #764ba2; font-size: 1.6rem;"></i>
-  <span style="color: #764ba2;">Shreyansh</span>
-  <span class="typing-effect" style="color: #667eea;"></span>
-</div>
-
-<script>
-  // Typing effect for "WebCraft"
-  const text = "WebCraft";
-  const typingSpan = document.querySelector(".typing-effect");
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      typingSpan.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 150); // typing speed in ms
-    }
-  }
-
-  type();
-</script>
-
-
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#support">Contact</a></li>
-    </ul>
-    <button id="menu-toggle" class="menu-toggle">☰</button>
-  </div>
-</nav>
-
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-code"></i>
+                <span>Shreyansh WebCraft</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#support">Contact</a></li>
+            </ul>
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>Crafting Websites and Apps That Power Your Business</h1>
-            <p>Professional websites, e-commerce platforms, mobile apps, and custom software solutions tailored for your business success</p>
-<!-- Main CTA Button -->
-<a href="#pricing" class="cta-button">
-  Build Your Website Today for <span class="highlight">₹1</span> – Pay Later!
-</a>
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> Premium Digital Solutions
+            </div>
+            <h1>
+                Crafting <span class="hero-gradient-text"> Websites and Apps</span><br>
+                That Powers Your Business
+            </h1>
+            <p>Transform your vision into stunning websites, powerful e-commerce platforms, and innovative mobile applications with cutting-edge technology and exceptional design.</p>
+            
+            <a href="#pricing" class="cta-button">
+             Get Website for<span class="highlight"> ₹0</span> - Pay Later
+            </a>
 
-<!-- Tags / Badges below the button -->
-<div class="cta-tags">
-  <span class="cta-tag"><i class="fas fa-gift"></i> Free Demo</span>
-  <span class="cta-tag"><i class="fas fa-tag"></i> Best Price</span>
-  <span class="cta-tag"><i class="fas fa-bolt"></i> Instant Setup</span>
-</div>
-
-<style>
-/* Main CTA button */
-.cta-button {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: white;
-    color: #667eea;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    border: 2px solid #667eea;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 0.75rem;
-    text-align: center;
-}
-
-.cta-button .highlight {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: #667eea;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: rgba(102, 126, 234, 0.15);
-    transform: skewX(-25deg);
-    transition: all 0.5s ease;
-}
-
-.cta-button:hover::before {
-    left: 125%;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-/* Tags container */
-.cta-tags {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Individual tags */
-.cta-tag {
-   
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem; /* space between icon and text */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect on tags */
-.cta-tag:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-/* Optional: make icons a little bigger */
-.cta-tag i {
-    font-size: 0.9rem;
-}
-/* Main CTA button */
-.cta-button {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: white;
-    color: #667eea;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    border: 2px solid #667eea;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 0.75rem;
-    text-align: center;
-}
-
-.cta-button .highlight {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: #667eea;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: rgba(102, 126, 234, 0.15);
-    transform: skewX(-25deg);
-    transition: all 0.5s ease;
-}
-
-.cta-button:hover::before {
-    left: 125%;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-/* Tags container */
-.cta-tags {
-    display: flex;
-    gap: 0.5rem; /* space between tags */
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Individual tags */
-.cta-tag {
-   
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.45rem;
-    border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    display: flex;
-    align-items: center;
-    gap: 0.15rem; /* small gap between icon and text */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect on tags */
-.cta-tag:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-</style>
-
-
-
-
-
+            <div class="cta-tags">
+                <span class="cta-tag"><i class="fas fa-gift"></i> No upfront cost</span>
+                <span class="cta-tag"><i class="fas fa-shield-alt"></i> Secure Payment</span>
+                <span class="cta-tag"><i class="fas fa-bolt"></i> Free Demo</span>
+            </div>
         </div>
     </section>
-<!-- Code Expertise Section -->
-<section style="padding: 2rem 5%; background: #f3f4f6; overflow: hidden;">
-  <h2 style="font-size: 1.3rem; padding: 1rem 5%;background: #667eea; margin-bottom: 1rem; border-radius: 15px; color: #f3f3f3; font-weight: 700; text-align: center;">We Build with Code, Not Tools</h2>
-  <p style="color: #64748b; font-size: 1rem; margin-bottom: 2rem; text-align: center;">Crafting digital solutions using modern programming languages and frameworks</p>
 
-  <!-- First Row -->
-  <div style="display: flex; gap: 2rem; animation: scroll-left 20s linear infinite; white-space: nowrap;">
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-html5" style="font-size: 2.5rem; color: #e34c26;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">HTML5</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-css3-alt" style="font-size: 2.5rem; color: #1572b6;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">CSS3</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-js-square" style="font-size: 2.5rem; color: #f7df1e;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">JavaScript</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-react" style="font-size: 2.5rem; color: #61dafb;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">React JS</span>
-    </div>
-     <div style="text-align:center;">
-      <i class="fa-solid fa-laptop-code" style="font-size:40px; color:#3DDC84;"></i>
-      <div style="font-size:12px; color:#1e293b;">Android Studio</div>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-java" style="font-size: 2.5rem; color: #007396;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Java</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-node-js" style="font-size: 2.5rem; color: #339933;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Node JS</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-php" style="font-size: 2.5rem; color: #777bb3;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">PHP</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-python" style="font-size: 2.5rem; color: #3776ab;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Python</span>
-    </div>
-  </div>
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <h2 class="tech-title">Built with Modern Technology Stack</h2>
+        <p class="tech-subtitle">Leveraging cutting-edge programming languages and frameworks</p>
 
-  <!-- Second Row -->
-  <div style="display: flex; gap: 2rem; margin-top: 2rem; animation: scroll-right 25s linear infinite; white-space: nowrap;">
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-angular" style="font-size: 2.5rem; color: #dd0031;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Angular</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-vuejs" style="font-size: 2.5rem; color: #42b883;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Vue JS</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-git-alt" style="font-size: 2.5rem; color: #f05032;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Git</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-docker" style="font-size: 2.5rem; color: #0db7ed;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Docker</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-aws" style="font-size: 2.5rem; color: #ff9900;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">AWS</span>
-    </div>
-    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 80px;">
-      <i class="fa-brands fa-linux" style="font-size: 2.5rem; color: #000000;"></i>
-      <span style="font-size: 0.8rem; color: #1e293b;">Linux</span>
-    </div>
-  </div>
-
-  <style>
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @keyframes scroll-right {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(50%); }
-    }
-  </style>
-</section>
+        <div class="tech-scroll">
+            <div class="tech-item">
+                <i class="fa-brands fa-html5" style="color: #e34c26;"></i>
+                <span>HTML5</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-css3-alt" style="color: #1572b6;"></i>
+                <span>CSS3</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-js-square" style="color: #f7df1e;"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-react" style="color: #61dafb;"></i>
+                <span>React JS</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-laptop-code" style="color: #3DDC84;"></i>
+                <span>Android Studio</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-java" style="color: #007396;"></i>
+                <span>Java</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-node-js" style="color: #339933;"></i>
+                <span>Node JS</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-php" style="color: #777bb3;"></i>
+                <span>PHP</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-python" style="color: #3776ab;"></i>
+                <span>Python</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-angular" style="color: #dd0031;"></i>
+                <span>Angular</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-vuejs" style="color: #42b883;"></i>
+                <span>Vue JS</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-git-alt" style="color: #f05032;"></i>
+                <span>Git</span>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title animate-on-scroll">About Shreyansh WebCraft</h2>
-            <p class="section-subtitle animate-on-scroll">Transforming ideas into powerful digital solutions</p>
+            <p class="section-subtitle animate-on-scroll">Where Innovation Meets Excellence</p>
             <div class="about-grid">
                 <div class="about-image animate-on-scroll">
-                    <img src="./sr.png">
+                    <img src="./sr.png" alt="Shreyansh Rauniyar">
                 </div>
                 <div class="about-content animate-on-scroll">
-                    <!-- <h3>We grow your business with full potential through innovation</h3> -->
-                    <p>Hi, I'm Shreyansh, a <b>Software Engineer</b> at Maersk and passionate freelancer. With expertise in modern web technologies and a deep understanding of business needs, I create digital solutions that drive real results.</p>
-                    <p>From stunning portfolio websites to robust e-commerce platforms, mobile applications, and custom software - I bring your vision to life with clean code, beautiful design, and exceptional user experience.</p>
+                    <p>Hi, I'm <strong>Shreyansh Rauniyar</strong>, a Software Engineer at Maersk and passionate freelance developer. With a deep expertise in modern web technologies and a comprehensive understanding of business dynamics, I transform ideas into powerful digital solutions.</p>
+                    <p>From elegant portfolio websites to robust e-commerce platforms, innovative mobile applications, and custom enterprise software — I deliver excellence through clean architecture, stunning design, and seamless user experiences that drive real business results.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
-   <section class="benefits">
-  <div class="container">
-    <h2 class="section-title animate-on-scroll">Why Choose Shreyansh WebCraft</h2>
-    <p class="section-subtitle animate-on-scroll">Professional quality meets personalized service</p>
-    <div class="benefits-grid">
-      
-      <div class="benefit-card animate-on-scroll">
-        <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
-        <h4>Fast Delivery</h4>
-        <p>Quick turnaround times without compromising on quality. Your project delivered on schedule, every time.</p>
-      </div>
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Why Choose Shreyansh WebCraft</h2>
+            <p class="section-subtitle animate-on-scroll">Premium quality meets personalized excellence</p>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h4>Lightning Fast Delivery</h4>
+                    <p>Rapid turnaround without compromising quality. Your project delivered on schedule with precision and excellence.</p>
+                </div>
 
-      <div class="benefit-card animate-on-scroll">
-        <div class="benefit-icon"><i class="fa-solid fa-gem"></i></div>
-        <h4>Premium Quality</h4>
-        <p>Clean, maintainable code following industry best practices. Built to scale and perform flawlessly.</p>
-      </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h4>Premium Quality Code</h4>
+                    <p>Clean, maintainable, scalable code following industry best practices. Built for performance and longevity.</p>
+                </div>
 
-      <div class="benefit-card animate-on-scroll">
-        <div class="benefit-icon"><i class="fa-solid fa-palette"></i></div>
-        <h4>Modern Design</h4>
-        <p>Beautiful, responsive interfaces that captivate users and deliver exceptional experiences across all devices.</p>
-      </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h4>Stunning Design</h4>
+                    <p>Beautiful, responsive interfaces that captivate users and deliver exceptional experiences across all devices.</p>
+                </div>
 
-      <div class="benefit-card animate-on-scroll">
-        <div class="benefit-icon"><i class="fa-solid fa-handshake"></i></div>
-        <h4>Personal Support</h4>
-        <p>Direct communication with me throughout the project. Your satisfaction is my top priority.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h4>24/7 Support</h4>
+                    <p>Direct communication and continuous support throughout your journey. Your success is our priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Stats Section -->
     <section class="stats">
         <div class="container">
-            <h2 class="section-title">Our Achievements</h2>
-            <p class="section-subtitle">Delivering excellence across diverse projects</p>
+            <h2 class="section-title" style="color: white;">Proven Track Record</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">Delivering excellence across diverse industries</p>
             <div class="stats-grid">
                 <div class="stat-item animate-on-scroll">
                     <div class="stat-number">50+</div>
@@ -1144,248 +1178,106 @@
                 </div>
                 <div class="stat-item animate-on-scroll">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Client Satisfaction</div>
+                    <div class="stat-label">Satisfaction Rate</div>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Pricing Section -->
-<section id="pricing" class="pricing">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll">Our Services & Pricing</h2>
-        <p class="section-subtitle animate-on-scroll">Transparent pricing for quality solutions</p>
-        <div class="pricing-grid">
-
-            <!-- Portfolio Website -->
-            <div class="pricing-card animate-on-scroll">
-                <div class="pricing-header">
-                    <h3>Portfolio Website</h3>
-                    <p class="pricing-subtitle">Perfect for professionals</p>
-                </div>
-
-                <!-- <div class="price" data-monthly="₹149" data-yearly="₹1499" data-onetime="₹4999">₹149</div>
-
-                <div class="price-options">
-                    <button class="price-toggle active" data-type="monthly">Monthly</button>
-                    <button class="price-toggle" data-type="yearly">Yearly</button>
-                    <button class="price-toggle" data-type="onetime">One-time</button>
-                </div>
-
-                <p class="price-period">Per Month</p> -->
-
-                <ul class="pricing-features">
-                    <li>4-6 page responsive website</li>
-                    <li>Modern & clean design</li>
-                    <li>Contact form integration</li>
-                    <li>SEO optimization</li>
-                    <li>Mobile responsive</li>
-                    <li>1 month free support</li>
-                </ul>
-
-                <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20portfolio" class="float" target="_blank">
-                    <button class="pricing-button">Book Free Demo</button>
-                </a>
-                <p style="margin-top:5px;font-size:0.85rem;color:#64748b;">T&C Applied</p>
-            </div>
-
-            <!-- E-Commerce Platform -->
-            <div class="pricing-card featured animate-on-scroll">
-                <div class="pricing-header">
-                    <h3>E-Commerce Platform</h3>
-                    <p class="pricing-subtitle">Start selling online</p>
-                </div>
-
-                <!-- <div class="price" data-monthly="₹499" data-yearly="₹5999" data-onetime="₹19999">₹499</div>
-
-                <div class="price-options">
-                    <button class="price-toggle active" data-type="monthly">Monthly</button>
-                    <button class="price-toggle" data-type="yearly">Yearly</button>
-                    <button class="price-toggle" data-type="onetime">One-time</button>
-                </div>
-
-                <p class="price-period">Per Month</p> -->
-
-                <ul class="pricing-features">
-                    <li>Full e-commerce functionality</li>
-                    <li>Product management system</li>
-                    <li>Payment gateway integration</li>
-                    <li>Shopping cart & checkout</li>
-                    <li>Inventory management</li>
-                    <li>3 months free support</li>
-                </ul>
-
-                <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20e-commerce%20platform" class="float" target="_blank">
-                    <button class="pricing-button">Book Free Demo</button>
-                </a>
-                <p style="margin-top:5px;font-size:0.85rem;color:#f9fafc;">T&C Applied</p>
-            </div>
-
-            <!-- Mobile Application -->
-            <div class="pricing-card animate-on-scroll">
-                <div class="pricing-header">
-                    <h3>Mobile Application</h3>
-                    <p class="pricing-subtitle">iOS & Android</p>
-                </div>
-
-                <!-- <div class="price" data-monthly="₹999" data-yearly="₹9999" data-onetime="₹39999">₹999</div>
-
-                <div class="price-options">
-                    <button class="price-toggle active" data-type="monthly">Monthly</button>
-                    <button class="price-toggle" data-type="yearly">Yearly</button>
-                    <button class="price-toggle" data-type="onetime">One-time</button>
-                </div>
-
-                <p class="price-period">Per Month</p> -->
-
-                <ul class="pricing-features">
-                    <li>Cross-platform development</li>
-                    <li>Native performance</li>
-                    <li>Push notifications</li>
-                    <li>Backend integration</li>
-                    <li>App store deployment</li>
-                    <li>3 months free support</li>
-                </ul>
-
-                <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20mobile%20application" class="float" target="_blank">
-                    <button class="pricing-button">Book Free Demo</button>
-                </a>
-                <p style="margin-top:5px;font-size:0.85rem;color:#64748b;">T&C Applied</p>
-            </div>
-
-            <!-- Custom Web & App -->
-            <div class="pricing-card animate-on-scroll">
-                <div class="pricing-header">
-                    <h3>Custom Web & App</h3>
-                    <p class="pricing-subtitle">Tailored solutions</p>
-                </div>
-
-                <div class="price-options">
-                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20custom%20web%20and%20app%20solutions" class="float" target="_blank"> 
-                        <button class="price-toggle active" data-type="monthly">Book Free Demo</button>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Premium Services & Pricing</h2>
+            <p class="section-subtitle animate-on-scroll">Transparent pricing for exceptional solutions</p>
+            <div class="pricing-grid">
+                <!-- Portfolio Website -->
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>Portfolio Website</h3>
+                        <p class="pricing-subtitle">Perfect for professionals</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>4-6 page responsive website</li>
+                        <li>Modern & elegant design</li>
+                        <li>Contact form integration</li>
+                        <li>Advanced SEO optimization</li>
+                        <li>Mobile-first responsive</li>
+                        <li>1 month premium support</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20portfolio" target="_blank">
+                        <button class="pricing-button">Book Free Demo</button>
                     </a>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b; text-align: center;">Terms & Conditions Apply</p>
                 </div>
 
-                <p class="price-period">Based on requirements</p>
+                <!-- E-Commerce Platform -->
+                <div class="pricing-card featured animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>E-Commerce Platform</h3>
+                        <p class="pricing-subtitle">Start selling online today</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Full e-commerce functionality</li>
+                        <li>Advanced product management</li>
+                        <li>Secure payment gateway</li>
+                        <li>Shopping cart & checkout</li>
+                        <li>Inventory management system</li>
+                        <li>3 months premium support</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20e-commerce%20platform" target="_blank">
+                        <button class="pricing-button">Book Free Demo</button>
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.9); text-align: center;">Terms & Conditions Apply</p>
+                </div>
 
-                <ul class="pricing-features">
-                    <li>Custom development</li>
-                    <li>Scalable architecture</li>
-                    <li>API development</li>
-                    <li>Database design</li>
-                    <li>Cloud deployment</li>
-                    <li>6 months free support</li>
-                </ul>
+                <!-- Mobile Application -->
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>Mobile Application</h3>
+                        <p class="pricing-subtitle">iOS & Android</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Cross-platform development</li>
+                        <li>Native performance</li>
+                        <li>Push notifications</li>
+                        <li>Backend API integration</li>
+                        <li>App store deployment</li>
+                        <li>3 months premium support</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20mobile%20application" target="_blank">
+                        <button class="pricing-button">Book Free Demo</button>
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b; text-align: center;">Terms & Conditions Apply</p>
+                </div>
 
-                <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20custom%20web%20and%20app%20solutions" class="float" target="_blank">
-                    <button class="pricing-button">Get Custom Quote</button>
-                </a>
-                <p style="margin-top:5px;font-size:0.85rem;color:#64748b;">T&C Applied</p>
+                <!-- Custom Solutions -->
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>Custom Solutions</h3>
+                        <p class="pricing-subtitle">Tailored to your needs</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Custom development</li>
+                        <li>Scalable architecture</li>
+                        <li>RESTful API development</li>
+                        <li>Database design & optimization</li>
+                        <li>Cloud deployment</li>
+                        <li>6 months premium support</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20about%20custom%20solutions" target="_blank">
+                        <button class="pricing-button">Get Custom Quote</button>
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b; text-align: center;">Terms & Conditions Apply</p>
+                </div>
             </div>
-
         </div>
-    </div>
-</section>
-
-
-
-<!-- <script>
-    const toggleButtons = document.querySelectorAll('.price-toggle');
-    toggleButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const card = btn.closest('.pricing-card');
-            const priceDiv = card.querySelector('.price');
-            const periodText = card.querySelector('.price-period');
-
-            // Remove active from siblings
-            btn.parentNode.querySelectorAll('.price-toggle').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const type = btn.dataset.type;
-            const price = priceDiv.dataset[type];
-            priceDiv.textContent = price;
-
-            if(type === 'monthly') periodText.textContent = 'Per Month';
-            else if(type === 'yearly') periodText.textContent = 'Per Year';
-            else periodText.textContent = type === 'onetime' ? 'One-time payment Life time Access' : '';
-        });
-    });
-</script> -->
-
-
-
-<style>
-    /* Existing CSS ... */
-    .price-options {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
-    .price-toggle {
-        padding: 0.5rem 1rem;
-        border: 1px solid #667eea;
-        border-radius: 50px;
-        background: white;
-        color: #667eea;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-size: 0.9rem;
-        font-weight: 600;
-    }
-    .price-toggle.active {
-        background: #667eea;
-        color: white;
-    }
-    .price-toggle:hover {
-        transform: scale(1.05);
-    }
-</style>
-
-<!-- Startup Hero / Founder Section (inline CSS) -->
-<section id="founder" style="padding: 3.5rem 5%; background: linear-gradient(135deg,#4865aa 0%, #1e293b 60%); color: #fff; text-align: center; border-radius: 16px; margin: 1.5rem; max-width: 90;">
-  <div style="max-width: 900px; margin: 0 auto;">
-    <h2 style="font-size: 2rem; line-height: 1.05; margin-bottom: 0.6rem; font-weight: 800;">
-   Turn Your Startup Idea into Reality
-    </h2>
-    <p style="color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 1.25rem;">
-      From concept to launch — we help founders build websites and apps that attract users, investors, and growth opportunities. Design, development, and strategy handled end-to-end.
-
-    <!-- Buttons -->
-    <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
-      <!-- Primary CTA: Be a Founder -->
-      <a href="#pricing" 
-         style="display: inline-flex; align-items: center; justify-content: center;
-                background: linear-gradient(90deg,#667eea 0%,#764ba2 100%);
-                color: #fff; text-decoration: none; padding: 0.9rem 1.6rem; border-radius: 999px;
-                font-weight: 700; font-size: 1rem; box-shadow: 0 8px 30px rgba(102,126,234,0.18);">
-        <span>Be a Founder</span>
-      </a>
-
-      <!-- Secondary CTA: Book a Free Call -->
-      <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hi%20Shreyansh%2C%20I%27m%20interested%20in%20launching%20my%20startup.%20Can%20we%20book%20a%20free%20call%3F" 
-         target="_blank"
-         style="display: inline-flex; align-items: center; justify-content: center;
-                background: transparent; color: #e6eefc; text-decoration: none;
-                padding: 0.85rem 1.4rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
-                font-weight: 600; font-size: 0.98rem;">
-        <i class="fa-solid fa-phone" style="margin-right:0.6rem;"></i> Book a Free Call
-      </a>
-    </div>
-
-    <!-- Small trust line -->
-    <p style="color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-top: 1rem;">
-      No commitment — demo & custom plan included. T&Cs apply.
-    </p>
-  </div>
-</section>
-
+    </section>
 
     <!-- FAQ Section -->
     <section id="faq" class="faq">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
-            <p class="section-subtitle animate-on-scroll">Got questions? We've got answers</p>
+            <p class="section-subtitle animate-on-scroll">Everything you need to know</p>
             <div class="faq-container">
                 <div class="faq-item animate-on-scroll">
                     <button class="faq-question">
@@ -1393,7 +1285,7 @@
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        Project timelines vary based on complexity. A portfolio website typically takes 2-3 weeks, e-commerce platforms 4-6 weeks, mobile apps 8-12 weeks, and custom software is determined after requirements analysis. I provide detailed timelines during our initial consultation.
+                        Project timelines vary based on complexity. Portfolio websites typically take 2-3 weeks, e-commerce platforms 4-6 weeks, mobile apps 8-12 weeks, and custom software timelines are determined after detailed requirements analysis. I provide comprehensive project timelines during our initial consultation.
                     </div>
                 </div>
 
@@ -1403,7 +1295,7 @@
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        Yes! All packages include free support for a specified period. After that, I offer flexible maintenance plans to keep your website, app, or software running smoothly with updates, security patches, and feature enhancements.
+                        Absolutely! All packages include complimentary support for a specified period. Beyond that, I offer flexible maintenance plans to ensure your digital solution runs smoothly with regular updates, security patches, and feature enhancements.
                     </div>
                 </div>
 
@@ -1413,7 +1305,7 @@
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        I work with modern web technologies including HTML, CSS, JavaScript, React, Node.js, Python, and various frameworks. For mobile development, I use React Native and Flutter. I select the best technology stack based on your specific project requirements.
+                        I specialize in modern web technologies including HTML5, CSS3, JavaScript, React, Angular, Node.js, Python, PHP, and various industry-leading frameworks. For mobile development, I use React Native and Flutter. I carefully select the optimal technology stack based on your specific project requirements and goals.
                     </div>
                 </div>
 
@@ -1423,42 +1315,40 @@
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        I typically require a 50% deposit to begin work, with the remaining 50% due upon project completion. For larger custom software projects, we can arrange milestone-based payments. I accept various payment methods for your convenience.
+                        I typically require a 50% deposit to initiate the project, with the remaining 50% due upon successful completion and delivery. For larger custom software projects, we can arrange milestone-based payment structures. I accept various secure payment methods for your convenience.
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- Floating Call Icon -->
-<div class="floating-call">
-  <a href="tel:+918176989558" title="Call Shreyansh">
-    <i class="fa-solid fa-phone"></i>
-  </a>
-</div>
 
     <!-- Support Section -->
     <section id="support" class="support">
         <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Let's discuss your ideas and create something amazing together</p>
-            <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services.%20Could%20you%20please%20provide%20more%20information?%20Thank%20you!
-"
- target="_blank" class="support-button">Contact Me Now</a>
+            <h2>Ready to Transform Your Vision?</h2>
+            <p>Let's collaborate and create something extraordinary together</p>
+            <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20am%20interested%20in%20discussing%20a%20project%20with%20you." target="_blank" class="support-button">
+                Start Your Journey Now
+            </a>
         </div>
     </section>
+
+    <!-- Floating Call Button -->
+    <div class="floating-call">
+        <a href="tel:+918176989558" title="Call Shreyansh">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Shreyansh WebCraft. All rights reserved. | Software Engineer at Maersk | Passionate Freelancer</p>
+            <p>&copy; 2025 Shreyansh WebCraft. All rights reserved. | Software Engineer at Maersk | Passionate Freelance Developer</p>
         </div>
     </footer>
 
     <script>
         // Navbar scroll effect
-
-
-
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1467,16 +1357,15 @@
                 navbar.classList.remove('scrolled');
             }
         });
-        
 
         // Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  menuToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
-});
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
 
         // Scroll animations
         const observerOptions = {
@@ -1502,19 +1391,17 @@ menuToggle.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 
-                // Close all FAQ items
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                 });
                 
-                // Open clicked item if it wasn't active
                 if (!isActive) {
                     faqItem.classList.add('active');
                 }
             });
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1524,6 +1411,9 @@ menuToggle.addEventListener('click', () => {
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('open');
+                    menuToggle.textContent = '☰';
                 }
             });
         });
@@ -1543,7 +1433,7 @@ menuToggle.addEventListener('click', () => {
             }, 16);
         };
 
-        // Trigger counter animation when stats section is visible
+        // Trigger counter animation
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1565,6 +1455,3 @@ menuToggle.addEventListener('click', () => {
     </script>
 </body>
 </html>
-
-
-
