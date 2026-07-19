@@ -212,6 +212,9 @@
             cursor: pointer;
             color: var(--dark);
         }
+        .close-menu {
+            display: none;
+        }
 
         /* Hero Section - Ultra Premium Layout */
         .hero {
@@ -1899,9 +1902,21 @@
                 right: 0;
             }
 
+            .close-menu {
+                display: block;
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                font-size: 2rem;
+                background: none;
+                border: none;
+                color: var(--dark);
+                cursor: pointer;
+            }
+
             .nav-links a {
-                font-size: 1.8rem;
-                font-weight: 700;
+                font-size: 1.2rem;
+                font-weight: 600;
             }
 
             .menu-toggle.active {
@@ -2333,6 +2348,7 @@
                 </div>
             </div>
             <ul class="nav-links">
+                <button id="close-menu" class="close-menu"><i class="fa-solid fa-xmark"></i></button>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about">About</a></li>
@@ -2340,7 +2356,7 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#support">Contact</a></li>
             </ul>
-            <button id="menu-toggle" class="menu-toggle">☰</button>
+            <button id="menu-toggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
         </div>
     </nav>
 
@@ -2485,7 +2501,7 @@
                             <li><i class="fa-solid fa-check"></i> Follow-up Reminders</li>
                             <li><i class="fa-solid fa-check"></i> Birthday Alerts</li>
                         </ul>
-                        <a href="crm.html" class="btn-check-details">Check Details <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="/reconnect/" class="btn-check-details">Check Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -3150,13 +3166,24 @@
             }
         });
 
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
         const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
 
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            menuToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+            navLinks.classList.add('open');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+        });
+        
+        // Close menu when a link is clicked
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
         });
 
         // Scroll animations
