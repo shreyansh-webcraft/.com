@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery CRM - Shreyansh WebCraft</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-navy: #0F172A;
+            --blue: #2563EB;
+            --gold: #F59E0B;
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-500: #64748B;
+            --gray-800: #1E293B;
+            
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--gray-50);
+            color: var(--dark-navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: 1.5rem; }
+
+        p { color: var(--gray-500); }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue), #1D4ED8);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-navy);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-500);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #D97706);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Section Spacing */
+        section { padding: 6rem 0; }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------------- Header ---------------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 1rem 0;
+        }
+
+        .header.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--gray-500);
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: var(--dark-navy); }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-actions .login-link {
+            font-weight: 600;
+            color: var(--dark-navy);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--dark-navy);
+            cursor: pointer;
+        }
+
+        /* ---------------- Hero Section ---------------- */
+        .hero {
+            padding-top: 10rem;
+            padding-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--blue);
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .hero h1 { margin-bottom: 1.5rem; }
+        
+        .hero-gradient-text {
+            background: linear-gradient(to right, var(--dark-navy), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        /* Laptop Mockup */
+        .laptop-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .laptop {
+            background: #e2e8f0;
+            border-radius: 12px 12px 0 0;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid #cbd5e1;
+            border-bottom: none;
+            transform: rotateX(5deg);
+            transform-style: preserve-3d;
+        }
+        
+        .laptop-screen {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .laptop-base {
+            height: 15px;
+            background: #cbd5e1;
+            border-radius: 0 0 12px 12px;
+            box-shadow: inset 0 -4px 10px rgba(0,0,0,0.1), 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            margin: 0 -20px;
+        }
+        
+        .laptop-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 10px;
+            background: #cbd5e1;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Mockup UI Inner */
+        .mockup-ui {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        
+        .mockup-sidebar {
+            width: 60px;
+            background: var(--dark-navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            gap: 20px;
+        }
+        
+        .mockup-sidebar-item {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .mockup-sidebar-item.active {
+            background: var(--blue);
+        }
+        
+        .mockup-content {
+            flex: 1;
+            background: #f8fafc;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mockup-title { font-size: 14px; font-weight: 700; color: #1E293B; }
+        .mockup-user { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748B; font-weight: 600; }
+        .mockup-user-avatar { width: 30px; height: 30px; background: #e2e8f0; border-radius: 50%; }
+        
+        .mockup-stats { display: flex; gap: 15px; }
+        .mockup-stat { flex: 1; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); padding: 15px; display: flex; flex-direction: column; justify-content: center; gap: 4px; border: 1px solid #f1f5f9; }
+        .m-stat-title { font-size: 10px; color: #64748B; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .m-stat-val { font-size: 20px; font-weight: 800; color: #0F172A; }
+        .m-stat-trend { font-size: 10px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .m-stat-trend.up { color: #10B981; }
+        .m-stat-trend.down { color: #EF4444; }
+
+        .mockup-main { display: flex; gap: 15px; flex: 1; }
+        .mockup-col-large { flex: 2; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); padding: 20px; display: flex; flex-direction: column; border: 1px solid #f1f5f9; }
+        .m-chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .m-chart-title { font-size: 14px; font-weight: 700; color: #0F172A; }
+        .m-chart-tabs { display: flex; gap: 10px; }
+        .m-chart-tab { font-size: 10px; font-weight: 600; color: #64748B; padding: 4px 8px; border-radius: 4px; background: #f8fafc; }
+        .m-chart-tab.active { background: rgba(37,99,235,0.1); color: var(--blue); }
+        .m-chart-bar-wrap { display: flex; align-items: flex-end; gap: 15px; flex: 1; }
+        .m-chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; }
+        .m-chart-bar { width: 100%; background: #e2e8f0; border-radius: 4px 4px 0 0; transition: height 0.5s; }
+        .m-chart-label { font-size: 9px; color: #94A3B8; font-weight: 600; }
+        
+        .mockup-col-small { flex: 1; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); padding: 20px; display: flex; flex-direction: column; gap: 15px; border: 1px solid #f1f5f9; }
+        .m-list-header { font-size: 14px; font-weight: 700; color: #0F172A; margin-bottom: 5px; }
+        .m-list-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f8fafc; }
+        .m-list-item:last-child { border-bottom: none; }
+        .m-list-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: white; }
+        .m-list-info { display: flex; flex-direction: column; flex: 1; }
+        .m-list-name { font-size: 11px; font-weight: 600; color: #0F172A; }
+        .m-list-action { font-size: 10px; color: #64748B; }
+        .m-list-time { font-size: 10px; color: #94A3B8; font-weight: 500; }
+
+        /* Floating elements */
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .fc-1 { top: 20%; left: -5%; animation-delay: 0s; }
+        .fc-2 { bottom: 20%; right: -5%; animation-delay: 2s; }
+        
+        .fc-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .fc-1 .fc-icon { background: var(--blue); }
+        .fc-2 .fc-icon { background: var(--gold); }
+        
+        .fc-text h4 { font-size: 0.9rem; margin: 0; }
+        .fc-text p { font-size: 0.8rem; margin: 0; color: var(--gray-500); }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* ---------------- Trusted By ---------------- */
+        .trusted {
+            padding: 4rem 0;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .trusted p {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--gray-500);
+        }
+
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            opacity: 0.6;
+            filter: grayscale(1);
+        }
+        
+        .logo-placeholder {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-500);
+        }
+
+        /* ---------------- Problem Section ---------------- */
+        .problems { background: var(--gray-50); }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(15, 23, 42, 0.05);
+            color: var(--dark-navy);
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-icon {
+            width: 50px;
+            height: 50px;
+            background: #FEE2E2;
+            color: #EF4444;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-card h3 { margin-bottom: 0.5rem; }
+
+        /* ---------------- Solution / Features ---------------- */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 24px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(37,99,235,0));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(37,99,235,0.05);
+        }
+
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            background: white;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+
+        /* ---------------- Dashboard Preview ---------------- */
+        .dashboard-preview {
+            background: var(--dark-navy);
+            color: white;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dashboard-preview::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at center, rgba(37,99,235,0.15) 0%, transparent 50%);
+        }
+
+        .dashboard-preview .section-header { color: white; position: relative; z-index: 2; }
+        .dashboard-preview .section-badge { background: rgba(255,255,255,0.1); color: white; }
+        .dashboard-preview p { color: var(--gray-200); }
+
+        .dash-ui-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 2;
+        }
+
+        .dash-header {
+            background: #F8FAFC;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #E2E8F0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dash-dots { display: flex; gap: 8px; }
+        .dash-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dash-dot:nth-child(1) { background: #EF4444; }
+        .dash-dot:nth-child(2) { background: #F59E0B; }
+        .dash-dot:nth-child(3) { background: #10B981; }
+
+        .dash-body {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 600px;
+        }
+
+        .dash-sidebar {
+            background: #1E293B;
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .ds-item {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+        .ds-item.active { background: var(--blue); color: white; }
+
+        .dash-main {
+            padding: 2rem;
+            background: #F1F5F9;
+            overflow-y: hidden;
+        }
+        
+        .dash-top-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .dt-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .dt-card-title { font-size: 0.8rem; color: #64748B; font-weight: 600; margin-bottom: 0.5rem; }
+        .dt-card-value { font-size: 1.5rem; font-weight: 700; color: #0F172A; }
+
+        .dash-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .dc-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: 300px;
+        }
+        
+        .dc-title { font-weight: 600; color: #0F172A; margin-bottom: 1rem; }
+        
+        /* ---------------- Why Choose Us ---------------- */
+        .why-us { background: white; }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gray-50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--blue);
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .why-card:hover .why-icon {
+            background: var(--blue);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .why-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+
+        /* ---------------- Pricing ---------------- */
+        .pricing { background: var(--gray-50); }
+        
+        .pricing-card-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            border: 2px solid var(--blue);
+            position: relative;
+            text-align: center;
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .price-title { font-size: 1.5rem; margin-bottom: 1rem; }
+        .price-amount { font-size: 4rem; font-weight: 800; color: var(--dark-navy); line-height: 1; margin-bottom: 0.5rem;}
+        .price-period { color: var(--gray-500); font-size: 1rem; }
+        .price-regular { text-decoration: line-through; color: var(--gray-500); margin-bottom: 2rem; display: block; }
+        
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .pricing-features i { color: #10B981; }
+        
+        .pricing-card .btn { width: 100%; padding: 1rem; font-size: 1.1rem; }
+
+        /* ---------------- FAQ ---------------- */
+        .faq { background: white; }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1.5rem 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--dark-navy);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--gray-500);
+            margin-top: 0;
+            opacity: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 1rem;
+            opacity: 1;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* ---------------- Final CTA ---------------- */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark-navy), #1E293B);
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .final-cta h2 { margin-bottom: 1.5rem; }
+        .final-cta p { color: var(--gray-200); margin-bottom: 3rem; font-size: 1.25rem; }
+        .final-cta .btn-group { display: flex; gap: 1rem; justify-content: center; }
+
+        /* ---------------- Footer ---------------- */
+        .footer {
+            background: var(--dark-navy);
+            color: white;
+            padding: 5rem 0 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand .logo-main { color: white; }
+        .footer-brand .logo-sub { color: rgba(255,255,255,0.6); }
+        .footer-brand p { color: var(--gray-500); font-size: 0.9rem; }
+        
+        .footer-heading {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links a { color: var(--gray-500); font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        /* ---------------- Responsive ---------------- */
+        @media (max-width: 992px) {
+            .hero { padding-top: 8rem; }
+            .dash-body { grid-template-columns: 1fr; }
+            .dash-sidebar { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions { display: none; }
+            .menu-toggle { display: block; }
+            .hero-btns { flex-direction: column; }
+            .trusted-logos { gap: 2rem; }
+            .dash-top-cards { grid-template-columns: 1fr 1fr; }
+            .dash-content-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .final-cta .btn-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <i class="fa-solid fa-gem" style="color: var(--blue); font-size: 1.8rem;"></i>
+                <div class="logo-text">
+                    <span class="logo-main">Reconnect</span>
+                    <span class="logo-sub">by Shreyansh WebCraft</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="login-link">Login</a>
+                <a href="#pricing" class="btn btn-primary">Get Free Demo</a>
+            </div>
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-badge">New Launch</div>
+                <h1>Never Miss a <span class="hero-gradient-text">Customer</span> Again.</h1>
+                <p>The easiest CRM built for Jewellery Stores to manage Leads, Walk-ins, Existing Customers, Follow-ups, Birthdays and Team Performance.</p>
+                
+                <div class="hero-btns">
+                    <a href="#pricing" class="btn btn-primary">Get Free Demo <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#pricing" class="btn btn-secondary">Join Early Access</a>
+                </div>
+            </div>
+
+            <!-- Laptop Mockup -->
+            <div class="laptop-wrapper fade-in" style="animation-delay: 0.2s;">
+                <div class="floating-card fc-1">
+                    <div class="fc-icon"><i class="fa-solid fa-bell"></i></div>
+                    <div class="fc-text">
+                        <h4>Birthday Reminder</h4>
+                        <p>Aarohi's birthday today!</p>
+                    </div>
+                </div>
+                <div class="floating-card fc-2">
+                    <div class="fc-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="fc-text">
+                        <h4>Sales Up</h4>
+                        <p>+24% this week</p>
+                    </div>
+                </div>
+                <div class="laptop">
+                    <div class="laptop-screen">
+                        <!-- CSS Mockup UI -->
+                        <div class="mockup-ui">
+                            <div class="mockup-sidebar">
+                                <div class="mockup-sidebar-item active"></div>
+                                <div class="mockup-sidebar-item"></div>
+                                <div class="mockup-sidebar-item"></div>
+                                <div class="mockup-sidebar-item"></div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="mockup-header">
+                                    <div class="mockup-title">Overview Dashboard</div>
+                                    <div class="mockup-user">Admin User <div class="mockup-user-avatar"></div></div>
+                                </div>
+                                <div class="mockup-stats">
+                                    <div class="mockup-stat">
+                                        <div class="m-stat-title">Total Leads</div>
+                                        <div class="m-stat-val">1,284</div>
+                                        <div class="m-stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +12.5%</div>
+                                    </div>
+                                    <div class="mockup-stat">
+                                        <div class="m-stat-title">New Walk-ins</div>
+                                        <div class="m-stat-val">42</div>
+                                        <div class="m-stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +5.2%</div>
+                                    </div>
+                                    <div class="mockup-stat">
+                                        <div class="m-stat-title">Follow-ups</div>
+                                        <div class="m-stat-val">156</div>
+                                        <div class="m-stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> -2.1%</div>
+                                    </div>
+                                    <div class="mockup-stat">
+                                        <div class="m-stat-title">Revenue (Est)</div>
+                                        <div class="m-stat-val">₹4.2M</div>
+                                        <div class="m-stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +18.4%</div>
+                                    </div>
+                                </div>
+                                <div class="mockup-main">
+                                    <div class="mockup-col-large">
+                                        <div class="m-chart-header">
+                                            <div class="m-chart-title">Sales & Leads Analytics</div>
+                                            <div class="m-chart-tabs">
+                                                <div class="m-chart-tab active">Weekly</div>
+                                                <div class="m-chart-tab">Monthly</div>
+                                            </div>
+                                        </div>
+                                        <div class="m-chart-bar-wrap">
+                                            <div class="m-chart-col"><div class="m-chart-bar" style="height: 40%;"></div><div class="m-chart-label">Mon</div></div>
+                                            <div class="m-chart-col"><div class="m-chart-bar" style="height: 65%; background: var(--blue);"></div><div class="m-chart-label">Tue</div></div>
+                                            <div class="m-chart-col"><div class="m-chart-bar" style="height: 45%;"></div><div class="m-chart-label">Wed</div></div>
+                                            <div class="m-chart-col"><div class="m-chart-bar" style="height: 85%; background: var(--gold);"></div><div class="m-chart-label">Thu</div></div>
+                                            <div class="m-chart-col"><div class="m-chart-bar" style="height: 55%;"></div><div class="m-chart-label">Fri</div></div>
+                                            <div class="m-chart-col"><div class="m-chart-bar" style="height: 30%;"></div><div class="m-chart-label">Sat</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-col-small">
+                                        <div class="m-list-header">Recent Activity</div>
+                                        <div class="m-list-item">
+                                            <div class="m-list-avatar" style="background: #3B82F6;">JD</div>
+                                            <div class="m-list-info">
+                                                <div class="m-list-name">John Doe</div>
+                                                <div class="m-list-action">Added new lead</div>
+                                            </div>
+                                            <div class="m-list-time">2m ago</div>
+                                        </div>
+                                        <div class="m-list-item">
+                                            <div class="m-list-avatar" style="background: #F59E0B;">SA</div>
+                                            <div class="m-list-info">
+                                                <div class="m-list-name">Sarah Ali</div>
+                                                <div class="m-list-action">Completed follow-up</div>
+                                            </div>
+                                            <div class="m-list-time">15m ago</div>
+                                        </div>
+                                        <div class="m-list-item">
+                                            <div class="m-list-avatar" style="background: #10B981;">MK</div>
+                                            <div class="m-list-info">
+                                                <div class="m-list-name">Meera K.</div>
+                                                <div class="m-list-action">Closed sale</div>
+                                            </div>
+                                            <div class="m-list-time">1h ago</div>
+                                        </div>
+                                        <div class="m-list-item">
+                                            <div class="m-list-avatar" style="background: #8B5CF6;">RJ</div>
+                                            <div class="m-list-info">
+                                                <div class="m-list-name">Rahul Jain</div>
+                                                <div class="m-list-action">Sent quotation</div>
+                                            </div>
+                                            <div class="m-list-time">3h ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="laptop-base">
+                    <div class="laptop-notch"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="trusted">
+        <div class="container">
+            <p>Built for Jewellery Businesses</p>
+            <div class="trusted-logos fade-in">
+                <div class="logo-placeholder"><i class="fa-solid fa-gem"></i> Abhishek Jewellers</div>
+                <div class="logo-placeholder"><i class="fa-solid fa-ring"></i> Rk Jewellers</div>
+                <div class="logo-placeholder"><i class="fa-solid fa-crown"></i> Shiv jewellers</div>
+                <div class="logo-placeholder"><i class="fa-regular fa-gem"></i> Ram & Mohan lal Saraf</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problems">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">The Problem</div>
+                <h2>Stop Losing Sales to Bad Management</h2>
+                <p>Traditional methods are costing you customers and revenue every single day.</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon"><i class="fa-solid fa-xmark"></i></div>
+                    <h3>Missed Follow-ups</h3>
+                    <p>Forgetting to call back a lead interested in a high-value item.</p>
+                </div>
+                <div class="problem-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="problem-icon"><i class="fa-solid fa-xmark"></i></div>
+                    <h3>Lost WhatsApp Enquiries</h3>
+                    <p>Conversations getting buried in personal WhatsApp accounts.</p>
+                </div>
+                <div class="problem-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="problem-icon"><i class="fa-solid fa-xmark"></i></div>
+                    <h3>Excel Sheets</h3>
+                    <p>Cluttered, unsecure, and hard to manage data across multiple staff.</p>
+                </div>
+                <div class="problem-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="problem-icon"><i class="fa-solid fa-xmark"></i></div>
+                    <h3>No Customer History</h3>
+                    <p>Not knowing what a returning customer bought last time.</p>
+                </div>
+                <div class="problem-card fade-in" style="animation-delay: 0.4s;">
+                    <div class="problem-icon"><i class="fa-solid fa-xmark"></i></div>
+                    <h3>No Birthday Reminder</h3>
+                    <p>Missing out on the easiest sales opportunity of the year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">The Solution</div>
+                <h2>Everything You Need in One Place</h2>
+                <p>A powerful suite of tools designed specifically for the workflow of modern jewellery stores.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Lead Management</h3>
+                    <p>Capture, track, and convert enquiries from all channels seamlessly.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-person-walking"></i></div>
+                    <h3>Walk-in Customer</h3>
+                    <p>Quickly register walk-ins and assign staff instantly.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-address-book"></i></div>
+                    <h3>Existing Customer</h3>
+                    <p>Maintain rich profiles with purchase history and preferences.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-user-minus"></i></div>
+                    <h3>Non Purchase (NPC)</h3>
+                    <p>Track visitors who didn't buy and follow up strategically.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3>Today's Follow-up</h3>
+                    <p>Daily auto-generated lists so staff know exactly who to call.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h3>Birthday Reminder</h3>
+                    <p>Automated alerts for customer birthdays to drive repeat sales.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-ring"></i></div>
+                    <h3>Anniversary Reminder</h3>
+                    <p>Never miss an anniversary sales opportunity again.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-timeline"></i></div>
+                    <h3>Customer Timeline</h3>
+                    <p>View every interaction, call, and visit in a neat timeline.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3>Call & WhatsApp Actions</h3>
+                    <p>One-click calling and WhatsApp messaging directly from CRM.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+                    <h3>Customer Tags</h3>
+                    <p>Segment customers by interest (e.g., Diamond, Gold, Bridal).</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Search by Name/Mobile</h3>
+                    <p>Lightning fast global search to find any customer instantly.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-file-excel"></i></div>
+                    <h3>Excel Import</h3>
+                    <p>Easily migrate your existing data into the CRM in seconds.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Reports</h3>
+                    <p>Detailed analytics on conversions, footfall, and demographics.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3>Staff Performance</h3>
+                    <p>Track which employees are closing the most leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Dashboard</div>
+                <h2>A View That Empowers Action</h2>
+                <p>Get a bird's-eye view of your entire store operations at a single glance.</p>
+            </div>
+            
+            <div class="dash-ui-wrapper fade-in">
+                <div class="dash-header">
+                    <div class="dash-dots">
+                        <div class="dash-dot"></div>
+                        <div class="dash-dot"></div>
+                        <div class="dash-dot"></div>
+                    </div>
+                    <div style="color: #64748B; font-size: 0.9rem; font-weight: 500;"><i class="fa-solid fa-lock" style="font-size: 0.7rem; margin-right: 5px;"></i> app.shreyanshwebcraft.in/crm</div>
+                </div>
+                <div class="dash-body">
+                    <div class="dash-sidebar">
+                        <div class="ds-item active"><i class="fa-solid fa-house"></i> Dashboard</div>
+                        <div class="ds-item"><i class="fa-solid fa-users"></i> Leads</div>
+                        <div class="ds-item"><i class="fa-solid fa-address-book"></i> Customers</div>
+                        <div class="ds-item"><i class="fa-solid fa-calendar-check"></i> Tasks</div>
+                        <div class="ds-item"><i class="fa-solid fa-chart-pie"></i> Reports</div>
+                        <div class="ds-item" style="margin-top: auto;"><i class="fa-solid fa-gear"></i> Settings</div>
+                    </div>
+                    <div class="dash-main">
+                        <div class="dash-top-cards">
+                            <div class="dt-card">
+                                <div class="dt-card-title">New Leads</div>
+                                <div class="dt-card-value">24</div>
+                            </div>
+                            <div class="dt-card">
+                                <div class="dt-card-title">Today's Follow-up</div>
+                                <div class="dt-card-value">12</div>
+                            </div>
+                            <div class="dt-card">
+                                <div class="dt-card-title">Pending Tasks</div>
+                                <div class="dt-card-value">5</div>
+                            </div>
+                            <div class="dt-card">
+                                <div class="dt-card-title">Total Customers</div>
+                                <div class="dt-card-value">1,492</div>
+                            </div>
+                        </div>
+                        <div class="dash-content-grid">
+                            <div class="dc-box">
+                                <div class="dc-title">Recent Activity Timeline</div>
+                                <!-- Pseudo UI lines -->
+                                <div style="height: 12px; width: 80%; background: #E2E8F0; border-radius: 4px; margin-bottom: 15px;"></div>
+                                <div style="height: 12px; width: 60%; background: #E2E8F0; border-radius: 4px; margin-bottom: 25px;"></div>
+                                <div style="height: 12px; width: 90%; background: #E2E8F0; border-radius: 4px; margin-bottom: 15px;"></div>
+                                <div style="height: 12px; width: 70%; background: #E2E8F0; border-radius: 4px; margin-bottom: 25px;"></div>
+                            </div>
+                            <div class="dc-box">
+                                <div class="dc-title">Today's Birthdays</div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: #FEF3C7; color: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;"><i class="fa-solid fa-cake-candles"></i></div>
+                                    <div>
+                                        <div style="height: 10px; width: 100px; background: #E2E8F0; border-radius: 4px; margin-bottom: 5px;"></div>
+                                        <div style="height: 8px; width: 60px; background: #F1F5F9; border-radius: 4px;"></div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 30px; height: 30px; background: #FEF3C7; color: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;"><i class="fa-solid fa-cake-candles"></i></div>
+                                    <div>
+                                        <div style="height: 10px; width: 120px; background: #E2E8F0; border-radius: 4px; margin-bottom: 5px;"></div>
+                                        <div style="height: 8px; width: 50px; background: #F1F5F9; border-radius: 4px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Benefits</div>
+                <h2>Why Choose Us</h2>
+                <p>Engineered for speed, security, and simplicity.</p>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant load times and real-time updates.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h3>Cloud Based</h3>
+                    <p>Access your store's data from anywhere in the world.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Secure</h3>
+                    <p>Enterprise-grade encryption keeps your data safe.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Fully responsive design works beautifully on any device.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3>Multi User</h3>
+                    <p>Create accounts for all your staff with specific roles.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Made for Jewellery</h3>
+                    <p>Tailor-made features specifically for jewellery retail workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Pricing</div>
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Everything you need to manage your store, for one flat fee.</p>
+            </div>
+            
+            <div class="pricing-card-wrapper fade-in">
+                <div class="pricing-card">
+                    <div class="pricing-badge">Early Access Offer</div>
+                    <h3 class="price-title">Pro Plan</h3>
+                    <div class="price-amount">₹999<span class="price-period">/Year</span></div>
+                    <span class="price-regular">Regular Price ₹2999</span>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-circle-check"></i> Unlimited Customers</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Unlimited Leads</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Unlimited Follow-ups</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Interactive Dashboard</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Advanced Reports</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Priority Support</li>
+                    </ul>
+                    
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20Book%20Free%20Demo%20for%20Jewellery%20CRM." class="btn btn-primary">Book Free Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">FAQ</div>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-container fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I import my existing Excel data?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely. We have a built-in Excel import tool that allows you to upload your existing customer and lead data in seconds.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can multiple staff members use it at once?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the CRM is multi-user capable. You can create separate accounts for your sales team, managers, and admins, all working simultaneously.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my customer data secure?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Security is our top priority. We use enterprise-grade encryption and secure cloud servers to ensure your sensitive business data is fully protected and backed up.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I access the CRM from my mobile phone?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the entire platform is mobile-friendly. You can check your dashboard, add leads, or follow up with customers directly from your smartphone browser.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do I need to install any software?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No installation is required. It is a 100% cloud-based web application. You just need a web browser and an internet connection to log in and start using it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container fade-in">
+            <h2>Ready to Grow Your Jewellery Business?</h2>
+            <p>Join smart jewellers who are organizing their sales and increasing revenue.</p>
+            <div class="btn-group">
+                <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20Book%20Free%20Demo%20for%20Jewellery%20CRM." class="btn btn-primary">Book Demo</a>
+                <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello" class="btn btn-secondary" style="color: var(--dark-navy);">WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <i class="fa-solid fa-gem" style="color: white; font-size: 1.8rem;"></i>
+                        <div class="logo-text">
+                            <span class="logo-main">Reconnect</span>
+                            <span class="logo-sub">by Shreyansh WebCraft</span>
+                        </div>
+                    </a>
+                    <p>Premium SaaS solutions and digital transformations for modern businesses.</p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">CRM</a></li>
+                        <li><a href="#">Inventory (Coming Soon)</a></li>
+                        <li><a href="#">Billing (Coming Soon)</a></li>
+                        <li><a href="#">ERP (Coming Soon)</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Website Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2026 Shreyansh WebCraft. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade In Animation Observer
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
