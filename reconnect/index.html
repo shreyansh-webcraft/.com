@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jewellery CRM - Shreyansh WebCraft</title>
+    <title>Reconnect CRM | Best CRM for Jewellery in Uttar Pradesh | Shreyansh WebCraft</title>
+    <meta name="description" content="Reconnect CRM by Shreyansh WebCraft is the best CRM for jewellery in Uttar Pradesh. Manage leads, customers, walk-ins, and follow-ups with ease.">
+    <meta name="keywords" content="Reconnect CRM, best CRM for jewellery in Uttar Pradesh, shreyansh webcraft reconnect, jewellery software, CRM for jewelers">
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -734,8 +736,12 @@
         .pricing { background: var(--gray-50); }
         
         .pricing-card-wrapper {
-            max-width: 500px;
+            max-width: 1000px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            align-items: start;
         }
         
         .pricing-card {
@@ -746,6 +752,11 @@
             border: 2px solid var(--blue);
             position: relative;
             text-align: center;
+        }
+
+        .pricing-card.enterprise {
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
         }
         
         .pricing-badge {
@@ -882,6 +893,25 @@
         }
 
         /* ---------------- Responsive ---------------- */
+        .mobile-hero-img {
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 4px solid white;
+        }
+
+        .dashboard-product-img {
+            width: 100%;
+            max-width: 1100px;
+            margin: 4rem auto 0;
+            display: block;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
         @media (max-width: 992px) {
             .hero { padding-top: 8rem; }
             .dash-body { grid-template-columns: 1fr; }
@@ -929,9 +959,10 @@
                 font-weight: 600;
             }
             .laptop-wrapper {
-                transform: scale(0.5);
-                transform-origin: top center;
-                margin-bottom: -180px;
+                display: none;
+            }
+            .mobile-hero-img {
+                display: block;
             }
             .floating-card { display: none; }
             .hero-btns { flex-direction: column; }
@@ -1012,7 +1043,7 @@
     <header class="header" id="header">
         <div class="container nav-container">
             <a href="/" class="logo">
-                <i class="fa-solid fa-gem" style="color: var(--blue); font-size: 1.8rem;"></i>
+                <img src="../r-logo.png" alt="Reconnect Logo" style="height: 40px; width: auto;">
                 <div class="logo-text">
                     <span class="logo-main">Reconnect</span>
                     <span class="logo-sub">by Shreyansh WebCraft</span>
@@ -1040,7 +1071,7 @@
             <div class="hero-content fade-in">
                 <div class="hero-badge">New Launch</div>
                 <h1>Never Miss a <span class="hero-gradient-text">Customer</span> Again.</h1>
-                <p>The easiest CRM built for Jewellery Stores to manage Leads, Walk-ins, Existing Customers, Follow-ups, Birthdays and Team Performance.</p>
+                <p>Meet <strong>Reconnect CRM</strong>—the easiest and best CRM for jewellery in Uttar Pradesh by Shreyansh WebCraft. Seamlessly manage Leads, Walk-ins, Existing Customers, Follow-ups, Birthdays, and Team Performance.</p>
                 
                 <div class="hero-btns">
                     <a href="#pricing" class="btn btn-primary">Get Free Demo <i class="fa-solid fa-arrow-right"></i></a>
@@ -1163,6 +1194,9 @@
                     <div class="laptop-notch"></div>
                 </div>
             </div>
+
+            <!-- Mobile Hero Image (Hidden on Desktop) -->
+            <img src="../product.png" alt="Jewellery CRM Product Screenshot" class="mobile-hero-img fade-in" style="animation-delay: 0.2s;">
         </div>
     </section>
 
@@ -1302,6 +1336,19 @@
         </div>
     </section>
 
+    <!-- Product Highlight -->
+    <section class="product-highlight" style="background: var(--gray-50); padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header fade-in" style="max-width: 900px; margin-bottom: 3rem;">
+                <h2>Never Miss a Lead Follow-up or Your Customer's Special Day</h2>
+                <p>Stay ahead with automated reminders and a seamless timeline. Build relationships that last and turn every opportunity into a sale.</p>
+            </div>
+            <div class="ph-image fade-in" style="text-align: center;">
+                <img src="../product2.png" alt="Product feature" style="width: 100%; max-width: 1100px; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); border: 1px solid var(--gray-200);">
+            </div>
+        </div>
+    </section>
+
     <!-- Dashboard Preview -->
     <section class="dashboard-preview">
         <div class="container">
@@ -1378,6 +1425,9 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Additional Product Screenshot -->
+            <img src="../product.png" alt="Jewellery CRM Product Screenshot" class="dashboard-product-img fade-in">
         </div>
     </section>
 
@@ -1435,22 +1485,52 @@
             </div>
             
             <div class="pricing-card-wrapper fade-in">
+                <!-- Card 1 -->
                 <div class="pricing-card">
-                    <div class="pricing-badge">Early Access Offer</div>
-                    <h3 class="price-title">Pro Plan</h3>
-                    <div class="price-amount">₹999<span class="price-period">/Year</span></div>
-                    <span class="price-regular">Regular Price ₹2999</span>
+                    <div class="pricing-badge">Early Bird Offer</div>
+                    <div style="font-size: 0.9rem; font-weight: 600; color: var(--gray-500); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Perfect for Jewellery Stores</div>
+                    <h3 class="price-title">🚀 Reconnect Pro</h3>
+                    <div class="price-amount">₹999<span class="price-period">/year</span></div>
+                    <span class="price-regular">Regular Price ₹5999</span>
                     
                     <ul class="pricing-features">
-                        <li><i class="fa-solid fa-circle-check"></i> Unlimited Customers</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Unlimited Leads</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Unlimited Follow-ups</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Interactive Dashboard</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Advanced Reports</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Priority Support</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Customer Management</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Lead Management</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Follow-up Reminders</li>
+                        <li><i class="fa-solid fa-circle-check"></i> NPC Tracking</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Walk-in Customers</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Birthday & Anniversary Alerts</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Reports & Dashboard</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Team Performance</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Excel Import</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Mobile Friendly</li>
                     </ul>
                     
-                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20Book%20Free%20Demo%20for%20Jewellery%20CRM." class="btn btn-primary">Book Free Demo</a>
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20Start%20with%20Reconnect%20Pro." class="btn btn-primary">Start Today</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="pricing-card enterprise">
+                    <div style="font-size: 0.9rem; font-weight: 600; color: var(--gray-500); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Built Around Your Business</div>
+                    <h3 class="price-title">🏢 Reconnect Enterprise</h3>
+                    <div class="price-amount" style="font-size: 2.5rem; padding: 0.75rem 0;">Custom Pricing</div>
+                    <span class="price-regular" style="visibility: hidden;">Placeholder</span>
+                    
+                    <ul class="pricing-features">
+                        <li style="font-weight: 700; color: var(--dark-navy);">Everything in Pro +</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Multi-Branch CRM</li>
+                        <li><i class="fa-solid fa-circle-check"></i> AI Chatbot</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Inventory Management</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Billing & ERP</li>
+                        <li><i class="fa-solid fa-circle-check"></i> WhatsApp Integration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Custom Dashboard</li>
+                        <li><i class="fa-solid fa-circle-check"></i> API Integration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Advanced User Roles</li>
+                        <li><i class="fa-solid fa-circle-check"></i> White Label</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Dedicated Support</li>
+                    </ul>
+                    
+                    <a href="https://api.whatsapp.com/send?phone=918176989558&text=Hello%20Shreyansh,%20I%20want%20to%20discuss%20Reconnect%20Enterprise." class="btn btn-secondary">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -1543,13 +1623,13 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="/" class="logo">
-                        <i class="fa-solid fa-gem" style="color: white; font-size: 1.8rem;"></i>
+                        <img src="../r-logo.png" alt="Reconnect Logo" style="height: 40px; width: auto;">
                         <div class="logo-text">
                             <span class="logo-main">Reconnect</span>
                             <span class="logo-sub">by Shreyansh WebCraft</span>
                         </div>
                     </a>
-                    <p>Premium SaaS solutions and digital transformations for modern businesses.</p>
+                    <p><strong>Reconnect CRM</strong> by Shreyansh WebCraft. The best CRM for jewellery in Uttar Pradesh and premium digital solutions for modern businesses.</p>
                 </div>
                 
                 <div>
